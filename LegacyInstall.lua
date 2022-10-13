@@ -12,9 +12,9 @@ function LInit()
   --Curing
   Legacy.Curing.Prios = Legacy.Curing.Prios or {}
   Legacy.Curing.Affs = Legacy.Curing.Affs or {}
-  
-  --Curing Sets
+ 
 
+  --Curing Sets
  Legacy.Curing.Prios.legacy = {
     ["Addiction"] = 11,
     ["Aeon"] = 1,
