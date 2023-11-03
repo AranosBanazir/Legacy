@@ -1,2 +1,2 @@
-return {{[1] = [[This is a test of Legacy's new Announcement System]],},
+return {{[1] = [[The Bashing Package has an update coming this saturday, those that use the package should be on the lookout!]],},
 }
