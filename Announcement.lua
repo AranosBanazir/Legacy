@@ -1,4 +1,5 @@
 return {{[1] = [[
-        The Bashing Package has an update coming this saturday, those that use 
-        the package should be on the lookout!]],},
+        There will be an update coming soon for the main Legacy system
+        Please make sure to save anything you have done seperately from
+        the main package!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]],},
 }
