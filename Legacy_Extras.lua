@@ -1,7 +1,7 @@
 return {{[ [[Trades]] ] = {2},[ [[Mudlet Mapper]] ] = {3},[ [[AK Opponent Tracking]] ] = {4},[ [[Legacy GUI]] ] = {5},[ [[Basher]] ] = {6},[ [[Curing Swaps]] ] = {7},[ [[Limb Tracker]] ] = {8},[ [[Soundtrack]] ] = {9},},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Trades.mpackage]],[ [[desc]] ] = [[Legacy Trades Package for: Conjuration, Inkmilling, Augmentation]],},
 {[ [[link]] ] = [[https://ire-mudlet-mapping.github.io/ire-mapping-script/downloads/mudlet-mapper.xml]],[ [[desc]] ] = [[Mudlet Mapper for Achaea.]],},
-{[ [[link]] ] = [[https://github.com/AranosBanazir/Legacy/raw/main/AK.xml]],[ [[desc]] ] = [[Austere's Affliction Tracking.]],},
+{[ [[link]] ] = [[https://github.com/AranosBanazir/Legacy/raw/main/AK.xml]],[ [[desc]] ] = [[Austere's Affliction Tracking. Version 8.5]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Legacy%20UI.mpackage]],[ [[desc]] ] = [[Legacy's GUI]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Basher.mpackage]],[ [[desc]] ] = [[Bashing Package.]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Curing%20Swaps.xml]],[ [[desc]] ] = [[Curing Swap function, downloading it through extras will allow you to keep it between updates of Legacy.]],},

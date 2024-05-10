@@ -1805,51 +1805,6 @@ end
 					</regexCodePropertyList>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Deadeyes</name>
-					<script>if ak.ai() then
-  return
-end
-local nextcurse = matches[2]
-if nextcurse == "breach" then
-elseif nextcurse == "sicken" then
-  if affstrack.score.manaleech &lt; 100 then
-    nextcurse = "manaleech"
-  else
-    nextcurse = "slickness"
-  end
-elseif nextcurse == "plague" then
-  nextcurse = "voyria"
-elseif nextcurse == "clumsy" then
-  nextcurse = "clumsiness"
-elseif nextcurse == "dizzy" then
-  nextcurse = "dizziness"
-elseif nextcurse == "stupid" then
-  nextcurse = "stupidity"
-elseif nextcurse == "vomiting" then
-  nextcurse = "nausea"
-elseif nextcurse == "reckless" then
-  nextcurse = "recklessness"
-end
-OppGainedAff(nextcurse)
-</script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>^Summoning up the curse of (\w+), you stare at (\w+)\, giving \w+ the evil eye\.$</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>1</integer>
-					</regexCodePropertyList>
-				</Trigger>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Leprosy</name>
 					<script>
 if ak.ai() then
@@ -1900,6 +1855,122 @@ end
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Disfigure</name>
+					<script>if IsTargetted(matches[2]) then
+	OppGainedAff("disloyalty")
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You concentrate and curse (\w+) with the visage of a rotting corpse\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Deadeyes</name>
+					<script>if ak.ai() then
+  return
+end
+ak.apostate.cursePull = ak.apostate.cursePull or {}
+local nextcurse = matches[2]
+if nextcurse == "breach" then
+elseif nextcurse == "sicken" then
+  if affstrack.score.manaleech &lt; 100 then
+    nextcurse = "manaleech"
+  else
+    nextcurse = "slickness"
+  end
+elseif nextcurse == "plague" then
+  nextcurse = "voyria"
+elseif nextcurse == "clumsy" then
+  nextcurse = "clumsiness"
+elseif nextcurse == "dizzy" then
+  nextcurse = "dizziness"
+elseif nextcurse == "stupid" then
+  nextcurse = "stupidity"
+elseif nextcurse == "vomiting" then
+  nextcurse = "nausea"
+elseif nextcurse == "reckless" then
+  nextcurse = "recklessness"
+end
+table.insert(ak.apostate.cursePull, nextcurse)
+enableTrigger("Curse Pull Dump")
+</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^Summoning up the curse of (\w+), you stare at (\w+)\, giving \w+ the evil eye\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Clumsy Brick</name>
+					<script>if ak.apostate.cursePull and #ak.apostate.cursePull &gt; 0 then
+  table.remove(ak.apostate.cursePull,#ak.apostate.cursePull)
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>transparent</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Your attempt to invoke the evileye was so clumsy that the malignant power unravels long before it can take form.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>3</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Curse Pull Dump</name>
+					<script>ak.apostate.cursePull = ak.apostate.cursePull or {}
+if #ak.apostate.cursePull &gt; 0 then
+  OppGainedAff(table.concat(ak.apostate.cursePull," "))
+end
+ak.apostate.cursePull = {}
+disableTrigger("Curse Pull Dump")</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string></string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>7</integer>
 					</regexCodePropertyList>
 				</Trigger>
 			</TriggerGroup>
@@ -5083,8 +5154,72 @@ end</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Enmeshed</name>
+					<script>ak.dragon.enmeshed = true
+ak.dragon.enmeshing = false
+ak.scoreup()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^As the keening ceases, a burst of ethereal tendrils flow from the chest of (\w+), but \w+ manages to avoid many of them\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Enmesh Cured</name>
+					<script>ak.dragon.enmeshed = false
+ak.scoreup()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^(\w+) manages to free \w+ of the bonds clinging to \w+ limbs\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Enmeshing</name>
+					<script>ak.dragon.enmeshing = true
+ak.scoreup()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^Fixing your gaze upon (\w+)\, you begin a low keening, exercising your mastery of the Veil to bind your foe\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
-			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Dwb Group</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -5944,12 +6079,505 @@ ak.scoreup(matches[2])
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList />
 				<regexCodePropertyList />
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Impurity</name>
-					<script>if nextcurse and nextcurse ~= "paralysis" then
-	 if ak.ai() then return end
-   OppGainedAff(nextcurse)
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Resonances</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Minor 2</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 1
+ak.magi.resonance[matches[3]] = 1
+ak.scoreup(target)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now minorly resonant with the Elemental Planes of (\w+) and (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Moderate 2</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 2
+ak.magi.resonance[matches[3]] = 2
+ak.scoreup(target)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now moderately resonant with the Elemental Planes of (\w+) and (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Major 2</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 3
+ak.magi.resonance[matches[3]] = 3
+ak.scoreup(target)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now majorly resonant with the Elemental Planes of (\w+) and (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Minor 1</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 1
+ak.scoreup(target)
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now minorly resonant with the Elemental Plane of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Moderate 1</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 2
+ak.scoreup(target)
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now moderately resonant with the Elemental Plane of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Major 1</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 3
+ak.scoreup(target)
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are now majorly resonant with the Elemental Plane of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Resonance 0</name>
+						<script>if ak.ai() then return end
+ak.magi.resonance[matches[2]] = 0
+ak.scoreup(target)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You are no longer resonant with the Elemental Plane of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Affs</name>
+						<script></script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList />
+						<regexCodePropertyList />
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Earth 1</name>
+							<script>if ak.ai() then return end
+local aff = matches[2]..""..matches[3]
+if IsTargetted(matches[4]) then
+  if affstrack.score[aff] == 0 then
+    affstrack.score[aff] = 100
+    ak.scoreup()
+  end
 end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^A loud crack emanates from the (\w+) (\w+) of (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Earth 2</name>
+							<script>if ak.ai() then return end
+local aff = "paralysis"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^You bleed off residual power from your connection with the Elemental Plane of Earth, directing it in an unfocussed blast of arcane might at (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Earth 3</name>
+							<script>if ak.ai() then return end
+if ak.twoh.ribs == 0 then
+  ak.twoh.ribs = 1
+end
+ak.scoreup()</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^The might of Elemental Earth coursing through you, you smite (\w+) with the full force of your directed will\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Water 1</name>
+							<script>if ak.ai() then return end
+local aff = "frostbite"
+if IsTargetted(matches[2]) then
+  OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^As you begin to tap your connection with the Elemental Plane of Water, you summon up a freezing wave to deluge (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Water 2</name>
+							<script>if ak.ai() then return end
+local aff = "stuttering"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^You summon up a flurry of icicles to slash at (\w+) in a shower of freezing daggers\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Water 3</name>
+							<script>if ak.ai() then return end
+local aff = "nausea anorexia"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^The might of Elemental Water suffusing you, you tear at the vital fluids which sustain the body of (\w+) with your will alone\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Fire 1</name>
+							<script>if ak.ai() then return end
+local aff = "notemper"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end
+</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^You send a spray of sparks to assault (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Fire 2</name>
+							<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  if affstrack.score.scalded == 0 then
+    OppGainedAff("scalded")
+    if ak.scaldTimer then killTimer(ak.scaldTimer) end
+    ak.scaldTimer = tempTimer(17,[[
+     	affstrack.score.scalded = 0
+     	ak.scoreup(]]..matches[2]..[[)
+    ]])
+  else
+    OppGainedAff(aff)
+  end
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^You will that (\w+) should burn, and so \w+ does\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Fire 3</name>
+							<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  if affstrack.score.blisters &gt; 0 then
+    ak.flameon("additive")
+  else
+    OppGainedAff("blisters")
+  end
+end
+</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^The incandescent might of Elemental Fire filling you, you command (\w+) to burn from within\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Air 1</name>
+							<script>if ak.ai() then return end
+local aff = "asthma"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^(\w+) clutches at \w+ throat as \w+ gasps for breath\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Air 2</name>
+							<script>if ak.ai() then return end
+local aff = "sensitivity"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^A vicious wind rises, lashing and flaying at the body of (\w+) to leave \w+ sensitive and raw\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Air 3</name>
+							<script>if ak.ai() then return end
+local aff = "healthleech"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^A dreadful pallor overcomes the features of (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+					</TriggerGroup>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Emanation</name>
+					<script></script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -5960,38 +6588,390 @@ end</script>
 					<mSoundFile></mSoundFile>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>^You direct a crystalline golem to introduce impurities into the blood of ([\w'\-]+)\.$</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>1</integer>
-					</regexCodePropertyList>
-				</Trigger>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Frozen</name>
-					<script>if ak.ai() then return end
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Fire</name>
+						<script>ak.magi.resonance.Fire = 0
+ak.flameon("emanation")
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^The might of elemental Fire filling you like a scorching river, you lift .+ to point at (\w+) and unleash a stream of searing flame\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Water</name>
+						<script>ak.magi.resonance.Water = 0
+OppGainedAff("frozen disrupt")</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^The might of elemental Water surging through your body, you make the slightest flick with .+\, and the hand of Sllshya descends as a freezing deluge to smash (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Earth</name>
+						<script>if ak.ai() then return end
+aff = "calcifiedhead"
+ak.magi.resonance.Earth = 0
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^The might of elemental Earth thrumming within your bones, you point .+ at (\w+) and an intangible wave of power strikes forth to smite \w+\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Air</name>
+						<script>if ak.ai() then return end
+aff = "paralysis dizziness"
+ak.magi.resonance.Air = 0
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You sweep .+ over your head and a great wind rises\, picking up (\w+) and dashing them violently about before casting them back to the ground\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Elementalism</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Mud Slide</name>
+						<script>if ak.ai() then
+  return
+end
+--ak.limbs.ParseonLine()
+if IsTargetted(matches[2]) then
+  EchoForMajorAff("PRONE")
+  OppGainedAff("prone slickness")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You weave earth and water and a torrent of thick mud thunders forth to roll over (\w+)\, knocking (\w+) sprawling\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Lightning</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  local aff = "paralysis"
+  if affstrack.score.fulminated &lt; 100 then
+    aff = "fulminated"
+  elseif affstrack.score.epilepsy &lt; 100 then
+    aff = "epilepsy"
+  end
+  OppGainedAff(aff)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You click your fingers and lightning strikes from the air to smite (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Dehydrate</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  OppGainedAff("nausea weariness")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Weaving the elements of fire and water, you attempt to rip the excess water from the body of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Magma</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  OppGainedAff("scalded")
+  if ak.scaldTimer then killTimer(ak.scaldTimer) end
+  ak.scaldTimer = tempTimer(17,[[
+   	affstrack.score.scalded = 0
+   	ak.scoreup(]]..matches[2]..[[)
+  ]])
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You weave fire and earth and bubbling magma boils into existence to wash over (\w+) in a skin\-melting tide\.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Transfix Stupidity</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  OppGainedAff("stupidity")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^The eyes of (\w+) grow distant as \w+ observes the complex patterns\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Firelash</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  ak.flameon("additive") 
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You form a lash of fire, and send it to scorch the flesh of (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Bombard</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  OppGainedAff("clumsiness")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You tap the Elemental Plane of Earth, summoning up a flurry of rocks to bombard (\w+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Frozen</name>
+						<script>if ak.ai() then return end
 OppGainedAff("frozen")</script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>^You raise a hand towards [\w'\-]+ and blast [\w'\-]+ with cold, frigid air\.$</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>1</integer>
-					</regexCodePropertyList>
-				</Trigger>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Deepfreeze</name>
-					<script>if ak.ai() then return end
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You raise a hand towards [\w'\-]+ and blast [\w'\-]+ with cold, frigid air\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Deepfreeze</name>
+						<script>if ak.ai() then return end
 OppGainedAff("deepfreeze")</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>You drain the heat from the air around your enemies, causing them to experience the cold of the abyss itself.</string>
+							<string>Austere gestures grandly, and causes a deepfreeze to settle over his enemies.</string>
+							<string>Morthif gestures grandly, and causes a deepfreeze to settle over his enemies.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>3</integer>
+							<integer>3</integer>
+							<integer>3</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Boulder Smush</name>
+						<script>if ak.ai() then return end
+ak.limbs.ParseonLine()
+if IsTargetted(matches[4]) then
+   smashlimb = matches[2]..matches[3]
+   if affstrack.score[smashlimb] &lt; 100 then
+      OppGainedAff(smashlimb)
+   end
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^One of the boulders smashes into the (\w+) (\w+) of (\w+) with a sickening crack\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Shalestorm</name>
+						<script></script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^You call upon the might of Elemental Earth to grind down (\w+)\, and with a terrible roar boulders begin to materialise from the air to hammer at \w+\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>3</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Staffcast</name>
+					<script></script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -6002,17 +6982,56 @@ OppGainedAff("deepfreeze")</script>
 					<mSoundFile></mSoundFile>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>You drain the heat from the air around your enemies, causing them to experience the cold of the abyss itself.</string>
-						<string>Austere gestures grandly, and causes a deepfreeze to settle over his enemies.</string>
-						<string>Morthif gestures grandly, and causes a deepfreeze to settle over his enemies.</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>3</integer>
-						<integer>3</integer>
-						<integer>3</integer>
-					</regexCodePropertyList>
-				</Trigger>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Horripilation Bond</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  OppGainedAff("waterbonds")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Even as the wave of cold dissipates, you retain control over the fluid and send it spinning through the air to bind (\w+) in a watery web\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Waterbond Faded</name>
+						<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  affstrack.score.waterbonds = 0
+  ak.scoreup(target)
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^The tendrils of water that bound (\w+) splash to the ground as the power sustaining them fades\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Destabilise</name>
 					<script></script>
@@ -6046,7 +7065,7 @@ ak.scoreup(target)</script>
 						<colorTriggerFgColor>#000000</colorTriggerFgColor>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
-							<string>Turning to a crystalline golem you direct him to project a disruptive tone at a retardation vibration.</string>
+							<string>Turning your attention to a retardation vibration, you observe the crystal resonance for a moment before producing a single, piercing note to destabilise its frequency.</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>3</integer>
@@ -8132,29 +9151,6 @@ end</script>
 					</regexCodePropertyList>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>Tenderskin</name>
-					<script>local aff = "tenderskin"
-if IsTargetted(matches[2]) then
-   OppGainedAff(aff)
-end</script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>^You beckon forth the cleansing fire\, and flames burst into being to scour away (\w+)\.$</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>1</integer>
-					</regexCodePropertyList>
-				</Trigger>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Hellsight</name>
 					<script>local aff = "hellsight"
 if IsTargetted(matches[2]) then
@@ -8205,8 +9201,121 @@ end</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Denounce Failed</name>
+					<script>if IsTargetted(matches[2]) then 
+if ak.ai() then return end
+ak.defs.reRebounding = true
+ak.defs.rebounding = false
+ak.scoreup(matches[2])
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You summon your righteous fury to denounce (\w+)\, but find nothing to sweep aside\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Repent</name>
+					<script>local aff = "hallucinations"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You confront (\w+) with \w+ many sins\, and \w+ may not look away\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Tenderskin</name>
+					<script>local aff = "tenderskin"
+if IsTargetted(matches[2]) then
+   OppGainedAff(aff)
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You beckon forth the cleansing fire\, and flames burst into being to scour away (\w+)\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Pyre(help)</name>
+					<script>--Burning plus one, pyre plus one, max level of 3. Cannot push burning higher than 3. 
+--If pyre is less than burning but burning is 1 or 2 it will boost burning to 2 or 3. 
+--Burning level cannot go below pyre level</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^By prayer and by will you bring the flame to (\w+)\, and \w+ knows its burning purity\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Condemned</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You condemn (\w+) to suffer the fate of all enemies of Creation\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
-			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Pariah Group</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -10574,7 +11683,7 @@ end
    local Uaff = matches[3]
    local unweave = "unweaving"..matches[3]
    ak.psion.unweaving[Uaff] = 1
-	 OppGainedAff("Prone "..unweave)
+     OppGainedAff(unweave)
    if Uaff == "mind" or Uaff == "body" then
     ak.psion.secondaryTick(unweave)
    end
@@ -10836,7 +11945,7 @@ end
 					</regexCodePropertyList>
 				</Trigger>
 			</TriggerGroup>
-			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Runewarden Group</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -10938,7 +12047,7 @@ enableTrigger("Othala fade")</script>
 						<integer>3</integer>
 					</regexCodePropertyList>
 				</Trigger>
-				<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Othala fade</name>
 					<script>ak.othala = false
 disableTrigger("Othala fade")</script>
@@ -11442,480 +12551,31 @@ end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList />
 					<regexCodePropertyList />
-					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-						<name>Sentinel Pets</name>
-						<script></script>
-						<triggerType>0</triggerType>
-						<conditonLineDelta>0</conditonLineDelta>
-						<mStayOpen>0</mStayOpen>
-						<mCommand></mCommand>
-						<packageName></packageName>
-						<mFgColor>#ff0000</mFgColor>
-						<mBgColor>#ffff00</mBgColor>
-						<mSoundFile></mSoundFile>
-						<colorTriggerFgColor>#000000</colorTriggerFgColor>
-						<colorTriggerBgColor>#000000</colorTriggerBgColor>
-						<regexCodeList />
-						<regexCodePropertyList />
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Raven</name>
-							<script>ak.animalsup = ak.animalsup or {}
-table.insert(ak.animalsup, "raven")
-ak.scoreup(target)</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>A thrilling sensation overcomes you as you concentrate on the image of a flying raven, soaring high in the clouds.</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>3</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Butterfly</name>
-							<script>ak.animalsup = ak.animalsup or {}
-table.insert(ak.animalsup, "butterfly")
-ak.scoreup(target)</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>You close your eyes and visualise a serene glade full of fluttering butterflies, yearning for the companionship of the delicate creatures.</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>3</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Fox</name>
-							<script>ak.animalsup = ak.animalsup or {}
-table.insert(ak.animalsup, "fox")
-ak.scoreup(target)</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>You pause and concentrate on the image of a sly fox, sending your thoughts into the forest around you.</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>3</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Wolf</name>
-							<script>ak.animalsup = ak.animalsup or {}
-table.insert(ak.animalsup, "wolf")
-ak.scoreup(target)</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>The call of the hunt overtakes you for a moment as you call the image of a wolf to your mind.</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>3</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Badger</name>
-							<script>ak.animalsup = ak.animalsup or {}
-table.insert(ak.animalsup, "badger")
-ak.scoreup(target)</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>A momentary feeling of annoyance takes hold of you as you picture the image of a badger.</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>3</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Badger(Addiction)</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("addiction")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "badger"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A grumpy badger carves great gouges in the flesh of ([\w'\-]+) with its claws\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Butterfly Blind Strip</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("blind")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "butterfly"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ blinks rapidly\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Butterfly Dizziness</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("dizziness")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "butterfly"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ sways unsteadily\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Fox HealthLeech</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("healthleech")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "fox"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A cunning red fox leaps upon ([\w'\-]+)\, sinking its teeth into [\w'\-]+ skin\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Wolf Hallucinations</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("hallucinations")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "wolf"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A grey wolf lets out a baying howl at ([\w'\-]+)\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Butterfly Transfix</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("transfixed")
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "butterfly"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A gossamer butterfly goes into a frenzy of movement before the eyes of ([\w'\-]+)\, mesmerising [\w'\-]+\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Raven</name>
-							<script>if IsTargetted(matches[2]) then 
- if affstrack.score.deaf == 100 then
-	OppGainedAff("prefarar")
- else 
-	OppGainedAff("deaf")
- end
-end
-ak.animalsup = ak.animalsup or {}
-local animaltoremove = "raven"
-if table.contains(ak.animalsup, animaltoremove) then
-   for i = 1, #ak.animalsup do
-      if ak.animalsup[i] == animaltoremove then
-         table.remove(ak.animalsup,i)
-      end
-   end
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^An ebony raven dives down upon ([\w'\-]+)\, pecking at [\w'\-]+ face and eyes\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Passive attacks</name>
-							<script></script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList />
-							<regexCodePropertyList />
-							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-								<name>Lemming passive</name>
-								<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("vertigo")
-end</script>
-								<triggerType>0</triggerType>
-								<conditonLineDelta>0</conditonLineDelta>
-								<mStayOpen>0</mStayOpen>
-								<mCommand></mCommand>
-								<packageName></packageName>
-								<mFgColor>#ff0000</mFgColor>
-								<mBgColor>#ffff00</mBgColor>
-								<mSoundFile></mSoundFile>
-								<colorTriggerFgColor>#000000</colorTriggerFgColor>
-								<colorTriggerBgColor>#000000</colorTriggerBgColor>
-								<regexCodeList>
-									<string>^The lemming races between the legs of (\w+)\.$</string>
-								</regexCodeList>
-								<regexCodePropertyList>
-									<integer>1</integer>
-								</regexCodePropertyList>
-							</Trigger>
-							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-								<name>Raven passive</name>
-								<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("paranoia")
-end</script>
-								<triggerType>0</triggerType>
-								<conditonLineDelta>0</conditonLineDelta>
-								<mStayOpen>0</mStayOpen>
-								<mCommand></mCommand>
-								<packageName></packageName>
-								<mFgColor>#ff0000</mFgColor>
-								<mBgColor>#ffff00</mBgColor>
-								<mSoundFile></mSoundFile>
-								<colorTriggerFgColor>#000000</colorTriggerFgColor>
-								<colorTriggerBgColor>#000000</colorTriggerBgColor>
-								<regexCodeList>
-									<string>^The raven dives at (\w+) and pulls up short, making (.*) uneasy\.$</string>
-								</regexCodeList>
-								<regexCodePropertyList>
-									<integer>1</integer>
-								</regexCodePropertyList>
-							</Trigger>
-							<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-								<name>butterfly</name>
-								<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("blind")
-end</script>
-								<triggerType>0</triggerType>
-								<conditonLineDelta>0</conditonLineDelta>
-								<mStayOpen>0</mStayOpen>
-								<mCommand></mCommand>
-								<packageName></packageName>
-								<mFgColor>#ff0000</mFgColor>
-								<mBgColor>#ffff00</mBgColor>
-								<mSoundFile></mSoundFile>
-								<colorTriggerFgColor>#000000</colorTriggerFgColor>
-								<colorTriggerBgColor>#000000</colorTriggerBgColor>
-								<regexCodeList>
-									<string>^A huge gossamer butterfly flutters wildly about ([\w'\-]+)\.$</string>
-								</regexCodeList>
-								<regexCodePropertyList>
-									<integer>1</integer>
-								</regexCodePropertyList>
-							</Trigger>
-						</TriggerGroup>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>Butterfly Blind</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("blind")
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ sways unsteadily\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-							<name>badger Asthma</name>
-							<script>if IsTargetted(matches[2]) then 
-   OppGainedAff("asthma")
-end</script>
-							<triggerType>0</triggerType>
-							<conditonLineDelta>0</conditonLineDelta>
-							<mStayOpen>0</mStayOpen>
-							<mCommand></mCommand>
-							<packageName></packageName>
-							<mFgColor>#ff0000</mFgColor>
-							<mBgColor>#ffff00</mBgColor>
-							<mSoundFile></mSoundFile>
-							<colorTriggerFgColor>#000000</colorTriggerFgColor>
-							<colorTriggerBgColor>#000000</colorTriggerBgColor>
-							<regexCodeList>
-								<string>^A grumpy badger lunges at (\w+), claws raking across \w+ throat\.$</string>
-							</regexCodeList>
-							<regexCodePropertyList>
-								<integer>1</integer>
-							</regexCodePropertyList>
-						</Trigger>
-					</TriggerGroup>
 				</TriggerGroup>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Not Prone</name>
+					<script>if ak.ai() then return end
+if IsTargetted(matches[2]) then
+  affstrack.score.prone = 0
+  ak.scoreup(target)
+end</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^(\w+) must be prone for you to do that\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Serpent Group</name>
@@ -12901,7 +13561,7 @@ end
 					</Trigger>
 				</TriggerGroup>
 			</TriggerGroup>
-			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Sword &amp; Board Group</name>
 				<script>--
 --Everything that follows was originally written by Klendathu
@@ -14281,6 +14941,37 @@ enableTrigger("Parry locate")</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Onslaught 2</name>
+					<script>if ak.ai() then return end
+local augment = "claws"
+local weapon = "dragonrend"
+local limb = ak.limbs.standardizeLimb(matches[3])
+table.insert(ak.limbs.currentbreak.weapon,weapon)
+table.insert(ak.limbs.currentbreak.limb,limb)
+table.insert(ak.limbs.currentbreak.attacker,matches[2])
+table.insert(ak.limbs.currentbreak.who,matches[4])
+table.insert(ak.limbs.currentbreak.augment,augment)
+enableTrigger("Missed Single Removal Limbs")          
+enableTrigger("Confirmed Hit Limbs")
+enableTrigger("Parry locate")</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^(\w+) unleashes an onslaught of vicious blows with \w+ unholy blades at the (?:right leg|left leg|torso|head|left arm|right arm) of (\w+)\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Water Lord Group</name>
@@ -14962,7 +15653,7 @@ end</script>
 					</regexCodePropertyList>
 				</Trigger>
 			</TriggerGroup>
-			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>2h Group</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -16276,8 +16967,12 @@ end
 							<string>^The daegger cuts through (\w+)\'s skullcap\-formed aura\.$</string>
 							<string>^Your mace ignites in holy flame\, burning away (\w)\'s protective aura\.$</string>
 							<string>^You deliver a single, powerful blow against the aura of rebounding surrounding (\w+)\, fracturing it\.$</string>
+							<string>^The aura of rebounding surrounding (\w+) is swept aside in an instant\.$</string>
+							<string>^A soulforged scimitar burns with an unholy glow in the hand of \w+ as it carves throughthe aura of rebounding surrounding (\w+)\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
@@ -16715,8 +17410,10 @@ end
 							<string>^([\w'\-]+)\'s prismatic barrier dissolves into nothing\.$</string>
 							<string>^The breath weapon rips apart ([\w'\-]+)\'s prismatic barrier\.$</string>
 							<string>^The othala rune on the ground suddenly erupts in a great gout of boiling magma\, the concussive blast smashing into the prismatic barrier surrounding ([\w'\-]+) and rendering it asunder\.$</string>
+							<string>^The prismatic barrier surrounding (\w+) is swept aside in an instant\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
+							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
 							<integer>1</integer>
@@ -17051,11 +17748,9 @@ end
 						<string>^He connects to the .*\!$</string>
 						<string>^She connects to the .*\!$</string>
 						<string>^You connect to the .*\!$</string>
-						<string>^You direct a crystalline golem to (.*)\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>7</integer>
-						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
@@ -17754,7 +18449,7 @@ ak.scoreup(target)</script>
 						</Trigger>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>Thyr</name>
-							<script>ak.limbs.blademaster.stance.Me = "Thyr"
+							<script>
 ak.scoreup(target)</script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
@@ -18707,7 +19402,22 @@ enableTrigger("Parry locate")
 						</regexCodePropertyList>
 						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 							<name>SpinKick Advance</name>
-							<script>affstrack.score.head = 200
+							<script>if ak.ai() then
+	ak.limbs.currentbreak.weapon = {}
+	ak.limbs.currentbreak.limb = {}
+	ak.limbs.currentbreak.attacker = {}
+	ak.limbs.currentbreak.who = {}
+	ak.limbs.currentbreak.augment = {}
+	ak.limbs.absorbed = false
+	disableTrigger("Missed Single Removal Limbs")                --DO NOT CHANGE!
+  disableTrigger("Parry locate")
+  disableTrigger("Monk Parry")
+elseif isPrompt() then
+	ak.limbs.parseBreaksPrompt()
+else
+	ak.limbs.parseBreaks()
+end
+affstrack.score.head = 200
 </script>
 							<triggerType>0</triggerType>
 							<conditonLineDelta>0</conditonLineDelta>
@@ -19910,8 +20620,10 @@ end</script>
 						<string>^([\w'\-]+) has already fallen to the ground\.$</string>
 						<string>^You deftly hook .* behind ([\w'\-]+)'s foot and send [\w'\-]+ tumbling off (.*) before driving the point of the weapon into [\w'\-]+ (right leg|left leg).$</string>
 						<string>^(\w+) is swept off \w+ feet by the blast\.$</string>
+						<string>^A mighty, bestial roarfrom \w+ leaves (\w+) looking dazed\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
@@ -20673,7 +21385,7 @@ end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList />
 					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Smash</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20700,7 +21412,7 @@ end</script>
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Timeflux Wear Off</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20728,7 +21440,7 @@ end</script>
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Failed Hypothermia</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20754,7 +21466,7 @@ end</script>
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Scalded</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20783,7 +21495,7 @@ end</script>
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Hypothermia</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20812,7 +21524,7 @@ end
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>Dehydrate</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -20866,15 +21578,15 @@ end</script>
 						<colorTriggerFgColor>#000000</colorTriggerFgColor>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
-							<string>^As a crystalline golem turns toward ([\w'\-]+), the flames crackling across</string>
 							<string>^The conflagration about ([\w'\-]+) continues to rage, searing flesh from bone\.$</string>
+							<string>You bend your will upon (\w+)\, and command that \w+ burn\.$</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>1</integer>
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>TimeFlux</name>
 						<script>if ak.ai() then return end
 ak.limbs.ParseonLine()
@@ -21280,8 +21992,10 @@ end</script>
 					<regexCodeList>
 						<string>^([\w'\-]+) misses you with [\w'\-]+ dirk by a hair\.$</string>
 						<string>^([\w'\-]+) points [\w'\-]+ finger at you\, but nothing seems to happen\.$</string>
+						<string>^A frustrated frown crosses the face of (\w+)\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 					</regexCodePropertyList>
@@ -21428,6 +22142,7 @@ if IsTargetted(matches[2]) then
 			ak.thoughtIhad("crushedthroat") 
 		else 
 			affstrack.score.crushedthroat = 0 
+      ak.scoreup(target)
 		end  
 	end
 end</script>
@@ -21560,7 +22275,7 @@ end</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>The angry swarm of bees descends upon </string>
-						<string>^The bees sting (\w+) into paralysis\$.</string>
+						<string>^The bees sting (\w+) into paralysis\.$</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>2</integer>
@@ -21590,6 +22305,313 @@ end</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Sentinel Pets</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Badger(Addiction)</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("addiction")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A grumpy badger carves great gouges in the flesh of ([\w'\-]+) with its claws\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Butterfly Blind Strip</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("blind")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ blinks rapidly\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Butterfly Dizziness</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("dizziness")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ sways unsteadily\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Fox HealthLeech</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("healthleech")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A cunning red fox leaps upon ([\w'\-]+)\, sinking its teeth into [\w'\-]+ skin\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Wolf Hallucinations</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("hallucinations")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A grey wolf lets out a baying howl at ([\w'\-]+)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Butterfly Transfix</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("transfixed")
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A gossamer butterfly goes into a frenzy of movement before the eyes of ([\w'\-]+)\, mesmerising [\w'\-]+\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Raven</name>
+						<script>if IsTargetted(matches[2]) then 
+ if affstrack.score.deaf == 100 then
+	OppGainedAff("prefarar")
+ else 
+	OppGainedAff("deaf")
+ end
+end
+</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^An ebony raven dives down upon ([\w'\-]+)\, pecking at [\w'\-]+ face and eyes\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Passive attacks</name>
+						<script></script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList />
+						<regexCodePropertyList />
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Lemming passive</name>
+							<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("vertigo")
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^The lemming races between the legs of (\w+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>Raven passive</name>
+							<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("paranoia")
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^The raven dives at (\w+) and pulls up short, making (.*) uneasy\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+						<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+							<name>butterfly</name>
+							<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("blind")
+end</script>
+							<triggerType>0</triggerType>
+							<conditonLineDelta>0</conditonLineDelta>
+							<mStayOpen>0</mStayOpen>
+							<mCommand></mCommand>
+							<packageName></packageName>
+							<mFgColor>#ff0000</mFgColor>
+							<mBgColor>#ffff00</mBgColor>
+							<mSoundFile></mSoundFile>
+							<colorTriggerFgColor>#000000</colorTriggerFgColor>
+							<colorTriggerBgColor>#000000</colorTriggerBgColor>
+							<regexCodeList>
+								<string>^A huge gossamer butterfly flutters wildly about ([\w'\-]+)\.$</string>
+							</regexCodeList>
+							<regexCodePropertyList>
+								<integer>1</integer>
+							</regexCodePropertyList>
+						</Trigger>
+					</TriggerGroup>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Butterfly Blind</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("blind")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A gossamer butterfly goes into a frenzy of motion in front of the eyes of ([\w'\-]+)\, and [\w'\-]+ sways unsteadily\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>badger Asthma</name>
+						<script>if IsTargetted(matches[2]) then 
+   OppGainedAff("asthma")
+end</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^A grumpy badger lunges at (\w+), claws raking across \w+ throat\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
 			</TriggerGroup>
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Health and Mana</name>
@@ -22471,7 +23493,7 @@ end
 </script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
+					<mStayOpen>1</mStayOpen>
 					<mCommand></mCommand>
 					<packageName></packageName>
 					<mFgColor>#ff0000</mFgColor>
@@ -22485,6 +23507,27 @@ end
 					<regexCodePropertyList>
 						<integer>1</integer>
 					</regexCodePropertyList>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>Fulminated Confirm</name>
+						<script>affstrack.score.fulminated = 100
+ak.scoreup(target)</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^Horror overcomes (\w+)\'s face as \w+ body stiffens into paralysis\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
 				</Trigger>
 				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Opponent Smoked</name>
@@ -22678,7 +23721,7 @@ end
 						<regexCodePropertyList>
 							<integer>1</integer>
 							<integer>5</integer>
-							<integer>0</integer>
+							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
@@ -24612,6 +25655,54 @@ ak.scoreup(matches[2])</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Flame Diminish</name>
+					<script>if IsTargetted(multimatches[2][2]) and affstrack.score.aflame &gt; 1 then
+   if affstrack.score.aflame ~= 100 or affstrack.score.aflame ~= 200 or affstrack.score.aflame ~= 300 or affstrack.score.aflame ~= 400 or affstrack.score.aflame ~= 500 or affstrack.score.aflame ~= 600 then 
+      affstrack.score.aflame = math.floor(affstrack.score.aflame / 100)
+      affstrack.score.aflame = affstrack.score.aflame * 100
+   end
+end
+</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>1</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>The fires consuming</string>
+						<string>^The fires consuming ([\w'\-]+) diminish somewhat\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>2</integer>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Condemned Fade</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>^You decree that the time for condemnation concerning (\w+) has passed\.$</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Queue &amp; Server Aliases</name>
@@ -25161,7 +26252,7 @@ enableTrigger("Class Changed Prompt Lock")
 					<integer>1</integer>
 					<integer>0</integer>
 					<integer>0</integer>
-					<integer>0</integer>
+					<integer>2</integer>
 					<integer>1</integer>
 					<integer>1</integer>
 					<integer>2</integer>
@@ -25644,6 +26735,8 @@ ak.duress = ak.duress or {}
 ak.ignition = ak.ignition or {}
 ak.serpent = ak.serpent or {}
 ak.dragon = ak.dragon or {}
+ak.dragon.enmeshing = false
+ak.dragon.enmeshed = false
 ak.firelord = ak.firelord or {}
 ak.firelord.spark = ak.firelord.spark or 0
 ak.priest = ak.priest or {}
@@ -25656,6 +26749,12 @@ ak.occie = ak.occie or {}
 ak.alchemist = ak.alchemist or {}
 ak.bard = ak.bard or {}
 ak.magi = ak.magi or {}
+ak.magi.resonance = ak.magi.resonance or {
+  ["Fire"] = 0,
+  ["Air"] = 0,
+  ["Earth"] = 0,
+  ["Water"] = 0,
+}
 ak.sentinel = ak.sentinel or {}
 ak.depthswalker = ak.depthswalker or {}
 ak.SnB = ak.SnB or {}
@@ -25664,6 +26763,7 @@ ak.dwc = ak.dwc or {}
 ak.dwb = ak.dwb or {}
 ak.bm = ak.bm or {}
 ak.sylvan = ak.sylvan or {}
+ak.apostate = ak.apostate or {}
 ak.shaman.coagulation = true
 ak.shaman.bloodlet = true
 ak.shaman.relapse = true
@@ -25731,7 +26831,7 @@ ak.bals = {}
 ak.bals.salve = true
 ak.bals.focus = true
 ak.defs = ak.defs or {}
-ak.defs.mass = false
+ak.defs.mass = true
 ak.defs.shield = false
 ak.defs.rebounding = false
 affstrack = {
@@ -25772,12 +26872,12 @@ affstrack = {
  
         applied = {
                 ["body"]  = {"torso","itching","anorexia","frozen","aflame","selarnia"},
-                ["skin"]  = {"anorexia", "crippledarm", "crippledleg","frozen","selarnia"},
+                ["skin"]  = {"frostbite","anorexia", "crippledarm", "crippledleg","frozen","selarnia"},
                 ["torso"] = {"anorexia", "torso", "aflame", "hypothermia","selarnia"},
-                ["head"]  = {"stuttering","head","crushedthroat"},
+                ["head"]  = {"calcifiedhead","stuttering","head","crushedthroat"},
                 ["arms"]  = {"crippledarm", "rightarm", "leftarm"},
                 ["legs"]  = {"crippledleg","rightleg","leftleg"},
-                ["ears"]  = {"scalded","head"}
+                ["ears"]  = {"head"}
         }, 
         eaten = {
                 ["piece of kelp"]    = {"asthma", "clumsiness", "hypochondria", "sensitivity", "weariness", "healthleech", "parasite"},
@@ -25792,8 +26892,8 @@ affstrack = {
                 ["arsenic pellet"]   = {"blind"},
                 ["hawthorn berry"]   = {"deaf"},
                 ["calamine crystal"] = {"deaf"},
-                ["goldenseal root"]  = {"sandfever","dizziness", "epilepsy", "impatience", "shyness", "stupidity", "depression"},
-                ["plumbum flake"]    = {"sandfever","dizziness", "epilepsy", "impatience", "shyness", "stupidity", "depression"},
+                ["goldenseal root"]  = {"fulminated","sandfever","dizziness", "epilepsy", "impatience", "shyness", "stupidity", "depression"},
+                ["plumbum flake"]    = {"fulminated","sandfever","dizziness", "epilepsy", "impatience", "shyness", "stupidity", "depression"},
                 ["bloodroot leaf"]   = {"pyramides","paralysis", "slickness"},
                 ["magnesium chip"]   = {"pyramides","paralysis", "slickness"},
                 ["ginseng root"]     = {"flushings","addiction", "darkshade", "haemophilia", "lethargy", "nausea", "scytherus"},
@@ -25929,6 +27029,7 @@ affstrack = {
                 ["blisters"]       = 0,
                 ["bound"]          = 0,
                 ["brand"]          = 0,
+                ["calcifiedhead"]  = 0,
                 ["claustrophobia"] = 0,
                 ["clumsiness"]     = 0,
                 ["conflagrate"]    = 0,
@@ -25950,8 +27051,10 @@ affstrack = {
                 ["enlighten"]      = 0,
                 ["epilepsy"]       = 0,
                 ["frozen"]         = 0,
+                ["frostbite"]      = 0,
                 ["flushings"]      = 0,
                 ["focusextend"]    = 0,
+                ["fulminated"]     = 0,
                 ["generosity"]     = 0,
                 ["guilt"]          = 0,
                 ["haemophilia"]    = 0,
@@ -25981,6 +27084,7 @@ affstrack = {
                 ["mindravaged"]    = 0,
                 ["mycalium"]       = 0,
                 ["nausea"]         = 0,
+                ["notemper"]       = 0,
                 ["pacifism"]       = 0,
                 ["paralysis"]      = 0,
                 ["parasite"]       = 0,
@@ -26043,6 +27147,7 @@ affstrack = {
                 ["unweavingbody"] = 0,
                 ["unweavingmind"] = 0,
                 ["unweavingspirit"] = 0,
+                ["waterbonds"]    = 0,
         },
  
         cureall = {
@@ -26144,7 +27249,13 @@ cecho("\n&lt;LimeGreen&gt;[&lt;DodgerBlue&gt;AK&lt;LimeGreen&gt;]: &lt;snow&gt;L
 				<name>Hard Reset</name>
 				<packageName></packageName>
 				<script>function ak.oresetparse()
-  target = target or "Austere"
+  target = target or "Dude"
+  ak.magi.resonance = {
+  ["Fire"] = 0,
+  ["Air"] = 0,
+  ["Earth"] = 0,
+  ["Water"] = 0,
+}
   ak.dragonTarget = false
   ak.elementalTarget = false
   ak.stack = ak.stack or "none"
@@ -26160,6 +27271,8 @@ cecho("\n&lt;LimeGreen&gt;[&lt;DodgerBlue&gt;AK&lt;LimeGreen&gt;]: &lt;snow&gt;L
   promptset = {}
   applycure = {}
   ak.bals.salve = true
+  ak.dragon.enmeshed = false
+  ak.dragon.enmeshing = false
   ak.bals.focus = true
   opponenttree = 0
   ak.defs.mass = true
@@ -26282,9 +27395,17 @@ end </script>
 				<name>Soft Reset</name>
 				<packageName></packageName>
 				<script>function ak.softreset()
+  ak.magi.resonance = {
+  ["Fire"] = 0,
+  ["Air"] = 0,
+  ["Earth"] = 0,
+  ["Water"] = 0,
+  }
   ak.tza = false
   ak.deathstrike = false
   ak.pariah.wracked = false
+  ak.dragon.enmeshed = false
+  ak.dragon.enmeshing = false
 	ak.shaman.Relapseaff = "none"
   ak.shaman.coagulation = true
   ak.shaman.bloodlet = true
@@ -26682,6 +27803,7 @@ function ak.classenable()
     end
     enableTrigger("Totem Group")
     enableTrigger("2h Group")
+    enableTrigger("Dwb Group")
     enableTrigger("Sword &amp; Board Group")
     cecho("&lt;yellow&gt;\nKNIGHT ENABLED\n\n")
   elseif gmcp.Char.Status.class == "Sentinel" then
@@ -26935,6 +28057,7 @@ elseif target and not ak.pause and not ak.syspause() then
    ak.serveraliases() 
 end
 ak.prompt.scoreup()
+raiseEvent("AK scoreup", whom)
 if ak.nodisplay then ak.noDisplay() else ak.refreshAffs() end
 end
   --&lt;3
@@ -26977,6 +28100,9 @@ function OppGainedAff(aff,source)
             amnesiatimer = tempTimer(1, [[OppLostAff("amnesia")]])
          elseif string.find(word,"unweave") then
             affstrack.score[word] = affstrack.score[word] + 100
+            table.insert(affStr,word:title())
+         elseif word == "calcifiedhead" then
+            affstrack.score[word] = 100
             table.insert(affStr,word:title())
          elseif word == "wrenchhead" then
             affstrack.score.wrenchhead = 100
@@ -27044,6 +28170,10 @@ function OppGainedAff(aff,source)
             if affstrack.score.frozen &gt; 300 then
                affstrack.score.frozen = 300
             end
+         --elseif word == "insulationstrip" then
+         --   if affstrack.score.frozen == 0 then
+         --     affstrack.score.frozen = 100
+         --   end
          elseif word == "deepfreeze" then
             affstrack.score["frozen"] = affstrack.score["frozen"] + 200 
             table.insert(affStr,"Frozen") 
@@ -27091,6 +28221,9 @@ function OppGainedAff(aff,source)
         amnesiatimer = tempTimer(1, [[OppLostAff("amnesia")]])
      elseif string.find(aff,"unweave") then
         affstrack.score[aff] = affstrack.score[aff] + 100
+        table.insert(affStr,aff:title())
+     elseif aff == "calcifiedhead" then
+        affstrack.score[aff] = 100
         table.insert(affStr,aff:title())
      elseif aff == "wrenchhead" then
         affstrack.score.wrenchhead = 100
@@ -27162,6 +28295,10 @@ function OppGainedAff(aff,source)
         table.insert(affStr,"Frozen") 
         if affstrack.score.frozen &gt; 300 then
            affstrack.score.frozen = 300
+        end
+    elseif aff == "insulationstrip" then
+        if affstrack.score.frozen == 0 then
+          affstrack.score.frozen = 100
         end                                         
      elseif affstrack.score[aff] then
         if affstrack.score[aff] &lt; 100 then       
@@ -27193,6 +28330,7 @@ function OppGainedAff(aff,source)
       ak.echogain(table.concat(affStr, " ")) 
       if rtpkrnl then ApK(table.concat(affStr, " rtpkrnl ")) end--AKG Display
   end
+  raiseEvent("AK got aff", affStr)
   ak.scoreup(target)
 end
 
@@ -27213,7 +28351,10 @@ function OppLostAff(aff)
     end
   end
   ak.scoreup(target)
-  if affStr:len() &gt; 0 then ak.echolost(affStr) end
+  if affStr:len() &gt; 0 then 
+    ak.echolost(affStr) 
+    raiseEvent("AK lost aff", affStr)
+  end
 end
 
 function OppGainedAdditive(affliction,incata,capata,minca)
@@ -27246,7 +28387,7 @@ end</script>
 -------------------------------------------------
 function IsTargetted(person)
    if not person then return end
-   target = target or "Austere"
+   target = target or "Dude"
    if person == target then 
      return true
    elseif string.starts(person, target) then
@@ -27536,7 +28677,6 @@ function ak.serveraliases()
       ak.undead.setattacks()
     end
   elseif gmcp.Char.Status.race:match("Dragon") and not inlyre() then
-    -- Dragon --
     if ak.dragon.setattacks then
       ak.dragon.setattacks()
     end
@@ -27577,7 +28717,6 @@ function ak.serveraliases()
       ak.priest.setattacks()
     end
   elseif gmcp.Char.Status.class == "Apostate" and not inlyre() then
-    -- APOSTATE --
     if ak.apostate.setattacks then
       ak.apostate.setattacks()
     end
@@ -27594,7 +28733,7 @@ function ak.serveraliases()
       ak.alchemist.setattacks()
     end
   elseif gmcp.Char.Status.class == "Jester" and not inlyre() then
-    if ak.jester.setattacks() then
+    if ak.jester.setattacks then
       ak.jester.setattacks()
     end
   elseif gmcp.Char.Status.class == "Depthswalker" and not inlyre() then
@@ -27653,24 +28792,27 @@ end</script>
 					<script>function ak.setalias(aliasname, changes)
   ak.aliases.lastsend[aliasname] = ak.aliases.lastsend[aliasname] or "unknown"
   ak.aliases[aliasname] = ak.aliases[aliasname] or "random"
-  if ak.aliases[aliasname] == changes then
+  local changesM = ak.parrycut(changes)
+  if ak.parrycut(ak.aliases[aliasname]) == changesM then
     return
   end
-  if ak.aliases.lastsend[aliasname] == changes then
+  if ak.parrycut(ak.aliases.lastsend[aliasname]) == changesM then
     return
   end
-  --local check = string.split(changes, "parry")
   ak.aliases.lastsend[aliasname] = changes
   send("setalias " .. aliasname .. " " .. changes, false)
 end
 
-local parrychecks = {["right leg"] = true}
-
 function ak.parrycut(var)
-  if not string.find(var, "parry") then
-    return var
-  end
-  for k, v in pairs(parrychecks) do
+  local aug = false
+  if string.find(var, "/parry %w+ %w+") then
+    aug = string.gsub(var,"/parry %w+ %w+","")
+    return aug
+  elseif string.find(var, "/parry %w+") then
+    aug = string.gsub(var,"/parry %w+","")
+    return aug
+  else
+    return var  
   end
 end
 
@@ -27796,9 +28938,14 @@ end</script>
 -- Note that you can also use external Scripts --
 -------------------------------------------------
 function ak.flameon(typer)
-   if typer == "additive" and affstrack.score.dehydrate == 100 and affstrack.score.aflame + 100 &lt; 500 then
+   if typer == "emanation" then
+      affstrack.score.aflame = affstrack.score.aflame + 200
+      if affstrack.score.aflame &gt;= 500 then
+        affstrack.score.aflame = 500
+      end
+   elseif typer == "additive" and affstrack.score.aflame + 100 &lt; 500 then
       affstrack.score.aflame = affstrack.score.aflame + 100      
-   elseif typer == "additive" and affstrack.score.dehydrate == 100 then
+   elseif typer == "additive" then
       affstrack.score.aflame = 500
    elseif affstrack.score.aflame &lt; 100 then
       affstrack.score.aflame = 100
@@ -28323,28 +29470,15 @@ end</script>
 -- Note that you can also use external Scripts --
 -------------------------------------------------
 function ak.dragon.default.dragoncurser() 
-      if math.random(100)&lt;50 then
-         if affstrack.score.paralysis&lt;100 and vcombo[1] ~= "curare" then
-            dragoncurse = "paralysis"
-         elseif affstrack.score.asthma&lt;100 and vcombo[1] ~= "kalmia" then
-            dragoncurse = "asthma"
-         elseif affstrack.score.sensitivity&lt;100 then
-            dragoncurse = "sensitivity"
-         elseif affstrack.score.impatience&lt;100 then
-            dragoncurse = "impatience"
-         end
-      else
-         if affstrack.score.asthma&lt;100 and vcombo[1] ~= "kalmia"  then
-            dragoncurse = "asthma"
-         elseif affstrack.score.impatience&lt;100 then
-            dragoncurse = "impatience"
-         elseif affstrack.score.sensitivity&lt;100 then
-            dragoncurse = "stupidity"
-         elseif affstrack.score.paralysis&lt;100 and vcombo[1] ~= "curare"  then
-            dragoncurse = "paralysis"
-         end
-    
-      end
+    if affstrack.score.paralysis&lt;100 and vcombo[1] ~= "curare" then
+       dragoncurse = "paralysis"
+    elseif affstrack.score.asthma&lt;100 and vcombo[1] ~= "kalmia" then
+       dragoncurse = "asthma"
+    elseif affstrack.score.sensitivity&lt;100 then
+       dragoncurse = "sensitivity"
+    elseif affstrack.score.impatience&lt;100 then
+       dragoncurse = "impatience"
+    end
    if affstrack.score.sensitivity&lt;100 and vcombo[1] == "prefarar" and affstrack.score.blind ~= 100 then dragoncurse = "sensitivity" end
 end
 </script>
@@ -28647,7 +29781,7 @@ local convert = {
                 ["agoraphobia"]    = "agor",
                 ["anorexia"]       = "anor",
                 ["aeon"]           = "aeon",
-								["amnesia"]        = "amn",
+							  ["amnesia"]        = "amn",
                 ["aflame"]         = "aflame",
                 ["airfist"]        = "afist",
                 ["asthma"]         = "ast",
@@ -28656,6 +29790,7 @@ local convert = {
                 ["blackout"]       = "blko",
                 ["bound"]          = "bound",
 								["brand"]          = "brnd",
+                ["calcifiedhead"]  = "chead",
                 ["claustrophobia"] = "claus",
                 ["clumsiness"]     = "clum",
                 ["conflagrate"]    = "cnflg",
@@ -28677,8 +29812,10 @@ local convert = {
                 ["epilepsy"]       = "epi",
                 ["enlighten"]      = "LIT",
                 ["frozen"]         = "frzn",
+                ["frostbite"]      = "fbite",
                 ["focusextend"]    = "fsex",
                 ["flushings"]      = "flsh",
+                ["fulminated"]     = "fulm",
                 ["generosity"]     = "genor",
                 ["guilt"]          = "gul",
                 ["haemophilia"]    = "haem",
@@ -28704,6 +29841,7 @@ local convert = {
 								["mindravaged"]    = "mrvg",
                 ["mycalium"]       = "myc",
                 ["nausea"]         = "naus",
+                ["notemper"]       = "noTemp",
                 ["pacifism"]       = "pac",
                 ["paralysis"]      = "para",
                 ["parasite"]       = "paras",
@@ -28765,6 +29903,7 @@ local convert = {
 								["unweavingbody"] = "ubody",
 								["unweavingspirit"] = "uspirit",
 								["bloodfire"]     = "bfire",
+                ["waterbonds"]    = "wbond",
 }
 ak.prompt = ak.prompt or {}
 --if ak.prompt.unique then return end
@@ -29363,28 +30502,33 @@ function ak.limbs.damageEcho_Target(who,limb)       -----Reset Timer --ak.limbs.
      cecho("&lt;green&gt;\n\nBroke "..who.."'s "..limb.."(A)!!")
 		 ak.limbs.breakOrder(limb)
 --Head
-  elseif (ak.limbs.limbcount[who][limb] &gt;= 100) and not ak.limbs.tekura.dontbreaksethead then
+  elseif (ak.limbs.limbcount[who][limb] &gt;= 100) then
 		 ak.limbs.limbcount[who].maxbreaks[limb] = ak.limbs.limbcount[who][limb]
      ak.limbs.limbcount[who][limb] = 0
      affstrack.score[limb] = affstrack.score[limb] + 100
-     if limb == "head" then affstrack.score.stupidity = 100 end
+     if limb == "head" then 
+        affstrack.score.stupidity = 100 
+        if affstrack.score.head &gt; 100 then
+          affstrack.score.stuttering = 100
+          affstrack.score.clumsiness = 100
+        end
+     end
 		 ak.limbs.lastbroke = limb
      cecho("&lt;green&gt;\n\nBroke "..who.."'s "..limb.."(B)!!")
 		 ak.limbs.breakOrder(limb)
-  elseif ak.limbs.tekura.dontbreaksethead then
-     if ak.limbs.limbcount[who]["head"] &gt; 100 then
-        affstrack.score["head"] = 200
-        affstrack.score.stupidity = 100
-     else
-        ak.limbs.limbcount[who]["head"] = ak.limbs.limbcount[who]["lastpercenthead"]
-        affstrack.score["head"] = affstrack.score["head"] + 100
-        affstrack.score.stupidity = 100
-     end
-		 ak.limbs.lastbroke = limb
-     cecho("&lt;green&gt;\n\nBroke "..who.."'s "..limb.."(AXK)!!")
-		 ak.limbs.breakOrder(limb)
   end
-  if affstrack.score.head &gt; 200 then affstrack.score.head = 200 end
+  if ak.limbs.tekura.dontbreaksethead then
+    if affstrack.score.head &gt;= 100 then
+      affstrack.score.head = 200
+      cecho("&lt;green&gt;\n\n(AXK)Broke "..who.."'s "..limb.."(A)!!")
+    else
+      affstrack.score.head = 100
+      cecho("&lt;green&gt;\n\n(AXK)Broke "..who.."'s "..limb.."(B)!!")
+    end
+  end
+  if affstrack.score.head &gt; 200 then 
+    affstrack.score.head = 200 
+  end
   cecho("&lt;yellow&gt;\n"..who.."'s "..limb.." is at&lt;cyan&gt; "..roundUp(ak.limbs.limbcount[who][limb],0).."("..hitsneeded..")!!")
   if ak.limbs.ScoreRun then 
 		ak.scoreup(target)
@@ -30167,13 +31311,13 @@ end
          table.insert(affs, curelist[i])
          ocured.cureall[curelist[i]] = affstrack.score[curelist[i]]
          if affstrack.score[curelist[i]] &gt; 100 and curelist[i] == "aflame" then
-            table.insert(affoverone, affstrack.cureall[i]) 
+            table.insert(affoverone, curelist[i]) 
             affstrack.score[curelist[i]] = affstrack.score[curelist[i]] - 100
             if affstrack.score[curelist[i]] &gt; 100 then
-               table.insert(affovertwo, affstrack.cureall[i]) 
+               table.insert(affovertwo, curelist[i]) 
                affstrack.score[curelist[i]] = affstrack.score[curelist[i]] - 100
                if affstrack.score[curelist[i]] &gt; 100 then
-                  table.insert(affoverthree, affstrack.cureall[i]) 
+                  table.insert(affoverthree, curelist[i]) 
                   affstrack.score[curelist[i]] = affstrack.score[curelist[i]] - 100
                   if affstrack.score[curelist[i]] &gt; 100 then
                      table.insert(affoverfour, curelist[i]) 
@@ -30330,11 +31474,11 @@ end</script>
       for i = 1, #affstrack.applied[what] do
          --display( affstrack.applied[what][i])--probable cures  
          --display(affstrack.score[affstrack.applied[what][i]])     
-         if affstrack.score[affstrack.applied[what][i]] &gt; 0 and affstrack.applied[what][i] ~= "frozen" and affstrack.applied[what][i] ~= "aflame" and (affstrack.score[affstrack.applied[what][i]] &gt; 100 or affstrack.applied[what][i] == "head" or affstrack.applied[what][i] == "torso" or affstrack.applied[what][i] == "hypothermia") then
+         if affstrack.score[affstrack.applied[what][i]] &gt; 0 and affstrack.applied[what][i] ~= "frozen" and affstrack.applied[what][i] ~= "aflame" and (affstrack.score[affstrack.applied[what][i]] &gt; 100 or affstrack.applied[what][i] == "calcifiedhead" or affstrack.applied[what][i] == "head" or affstrack.applied[what][i] == "torso" or affstrack.applied[what][i] == "hypothermia") then
             table.insert(applycure.possiblerestorations, affstrack.applied[what][i])
             table.insert(applycure.both, affstrack.applied[what][i])
             table.insert(applycure.donotrecount, affstrack.applied[what][i]) 
-						if affstrack.score[affstrack.applied[what][i]] &lt; 200 and affstrack.applied[what][i] ~= "torso" and affstrack.applied[what][i] ~= "head" then
+						if affstrack.score[affstrack.applied[what][i]] &lt; 200 and affstrack.applied[what][i] ~= "torso" and affstrack.applied[what][i] ~= "head" and affstrack.applied[what][i] ~= "calcifiedhead" then
 							table.insert(applycure.possiblemendings, affstrack.applied[what][i]) 
 							applycure.mendingscore = affstrack.score[affstrack.applied[what][i]] + applycure.mendingscore 
 						end
@@ -30479,7 +31623,7 @@ function AKcalculateSalve()
    local ToBeCleared = {}
       for i = 1, #affstrack.applied[applycure.lastapplied] do
          --display( affstrack.applied[applycure.lastapplied][i])--probable cures         
-         if affstrack.score[affstrack.applied[applycure.lastapplied][i]] &gt; 0 and affstrack.applied[applycure.lastapplied][i] ~= "frozen" and affstrack.applied[applycure.lastapplied][i] ~= "aflame" and (affstrack.score[affstrack.applied[applycure.lastapplied][i]] &gt; 100 or affstrack.applied[applycure.lastapplied][i] == "head" or affstrack.applied[applycure.lastapplied][i] == "torso" or affstrack.applied[applycure.lastapplied][i] == "hypothermia") then
+         if affstrack.score[affstrack.applied[applycure.lastapplied][i]] &gt; 0 and affstrack.applied[applycure.lastapplied][i] ~= "frozen" and affstrack.applied[applycure.lastapplied][i] ~= "aflame" and (affstrack.score[affstrack.applied[applycure.lastapplied][i]] &gt; 100 or affstrack.applied[applycure.lastapplied][i] == "calcifiedhead" or affstrack.applied[applycure.lastapplied][i] == "head" or affstrack.applied[applycure.lastapplied][i] == "torso" or affstrack.applied[applycure.lastapplied][i] == "hypothermia") then
             table.insert(ToBeCleared, affstrack.applied[applycure.lastapplied][i])
             table.insert(applycure.possiblerestorations, affstrack.applied[applycure.lastapplied][i])
             table.insert(applycure.both, affstrack.applied[applycure.lastapplied][i])
@@ -30860,7 +32004,7 @@ end
 -------------------------------------------------
 ak.enemyprio = ak.enemyprio or {}
 ak.enemyprio.healed = ak.enemyprio.healed or {}
-target = target or "Austere"
+target = target or "Dude"
 
 ak.tieredaffs = {"rightleg 100","rightleg 200","rightleg 300","leftleg 100","leftleg 200","leftleg 300","rightarm 100","rightarm 200","rightarm 300","leftarm 100","leftarm 200","leftarm 300",
                  "head 100","head 200","head 300","torso 100","torso 200","torso 300"}
@@ -31346,7 +32490,7 @@ AkcheckPrioList = {
 				<Script isActive="yes" isFolder="no">
 					<name>Version ID</name>
 					<packageName></packageName>
-					<script>ak.version = 8.2</script>
+					<script>ak.version = 8.5</script>
 					<eventHandlerList />
 				</Script>
 				<Script isActive="yes" isFolder="no">
@@ -31608,9 +32752,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."sw"..postsend)
   else
@@ -31627,9 +32768,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."s"..postsend)
   else
@@ -31646,9 +32784,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."se"..postsend)
   else
@@ -31665,9 +32800,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."w"..postsend)
   else
@@ -31683,14 +32815,6 @@ end</script>
 					<packageName></packageName>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
    send("ql")
-elseif gmcp and gmcp.Char and gmcp.Char.Vitals and gmcp.Char.Vitals.charstats[3] == "Spec: Dual Cutting" then
-	if ak.stack == "dwckelp" then
-		ak.stack = "dwcstupid"
-		ak.scoreup(target)
-	else
-		ak.stack = "dwckelp"
-		ak.scoreup(target)
-	end 
 end</script>
 					<command></command>
 					<keyCode>53</keyCode>
@@ -31702,9 +32826,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."e"..postsend)
   else
@@ -31721,9 +32842,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."nw"..postsend)
   else
@@ -31740,9 +32858,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."n"..postsend)
   else
@@ -31759,9 +32874,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."ne"..postsend)
   else
@@ -31798,9 +32910,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
      send(presend.."down"..postsend)
   else
@@ -31845,14 +32954,11 @@ end</script>
 					<keyModifier>536870912</keyModifier>
 				</Key>
 				<Key isActive="yes" isFolder="no">
-					<name>* WardReset </name>
+					<name>* WardReset</name>
 					<packageName></packageName>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."out"..postsend)
   else
@@ -31903,9 +33009,6 @@ end</script>
 					<script>if table.contains(ak.MovementKeys, gmcp.Char.Name.name) then
   local presend = ""
   local postsend = ""
-  if wsys.def.phased then
-    postsend = "|look at shrine|look at guard"
-  end
 	if TumbleEngaged then
     send(presend.."in"..postsend)
   else
