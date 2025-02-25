@@ -1,6 +1,6 @@
 return {{[ [[AK V8.5]] ] = {2},[ [[Basher]] ] = {3},[ [[Legacy GUI]] ] = {4},[ [[Trades]] ] = {5},[ [[Shrine Tracker]] ] = {6},[ [[Mudlet Mapper]] ] = {7},[ [[Curing Swaps]] ] = {8},[ [[Limb Tracker]] ] = {9},[ [[Soundtrack]] ] = {10},},
 {[ [[link]] ] = [[https://github.com/AranosBanazir/Legacy/raw/main/AK.xml]],[ [[desc]] ] = [[Austere's Affliction Tracking.]],},
-{[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Basher.mpackage]],[ [[desc]] ] = [[Bashing Package V2.0.]],},
+{[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Basher.mpackage]],[ [[desc]] ] = [[Bashing Package V2.1.]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Legacy%20UI.mpackage]],[ [[desc]] ] = [[Legacy GUI V2.0]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Trades.mpackage]],[ [[desc]] ] = [[Legacy Trades Package for: Conjuration, Inkmilling, Augmentation]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Shrines%20V3.0.mpackage]],[ [[desc]] ] = [[Package to track, display, and autowalk to shrines.]],},
