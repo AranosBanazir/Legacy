@@ -1,5 +1,5 @@
 return {{[ [[AK Opponent Tracking]] ] = {2},[ [[Basher]] ] = {3},[ [[Legacy GUI]] ] = {4},[ [[Trades]] ] = {5},[ [[Legacy SLC]] ] = {6},[ [[Mudlet Mapper]] ] = {7},[ [[Curing Swaps]] ] = {8},[ [[Limb Tracker]] ] = {9},[ [[Soundtrack]] ] = {10},},
-{[ [[link]] ] = [[https://github.com/AranosBanazir/Legacy/raw/main/AK%208.2.zip]],[ [[desc]] ] = [[Austere's Affliction Tracking.]],},
+{[ [[link]] ] = [[https://github.com/AranosBanazir/Legacy/raw/main/AK.xml]],[ [[desc]] ] = [[Austere's Affliction Tracking 8.5.]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Basher.mpackage]],[ [[desc]] ] = [[Bashing Package.]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Legacy%20UI.mpackage]],[ [[desc]] ] = [[Legacy's GUI]],},
 {[ [[link]] ] = [[https://github.com/Legacy-System/Legacy/raw/main/Trades.mpackage]],[ [[desc]] ] = [[Legacy Trades Package for: Conjuration, Inkmilling, Augmentation]],},
